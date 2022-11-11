@@ -1,0 +1,1 @@
+python trainmdrnn.py --logdir exp_dir  --batch-size 8  --epochs 1

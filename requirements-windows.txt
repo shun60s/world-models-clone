@@ -1,0 +1,8 @@
+# Python 3.6.4 on win32
+cma==2.6.0
+gym==0.15.3
+box2d-py==2.3.8
+tqdm==4.28.1
+numpy==1.18.4
+torch==1.7.1+cpu
+torchvision==0.8.2+cpu

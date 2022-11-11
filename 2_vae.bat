@@ -1,0 +1,1 @@
+python trainvae.py --logdir exp_dir  --batch-size 8  --epochs 1
