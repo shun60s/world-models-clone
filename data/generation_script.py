@@ -19,18 +19,22 @@ args = parser.parse_args()
 
 rpt = args.rollouts // args.threads + 1
 
+###
+windows_os = True
+###
+
 def _threaded_generation(i):
     tdir = join(args.rootdir, 'thread_{}'.format(i))
     makedirs(tdir, exist_ok=True)
     
     ###
-    if 0:
+    if windows_os:
+        cmd = ["python", "-m", "data.carracing", "--dir",
+                tdir, "--rollouts", str(rpt), "--policy", args.policy]
+    else:
         cmd = ['xvfb-run', '-s', '"-screen 0 1400x900x24"']
         cmd += ['--server-num={}'.format(i + 1)]
         cmd += ["python", "-m", "data.carracing", "--dir",
-                tdir, "--rollouts", str(rpt), "--policy", args.policy]
-    else:
-        cmd = ["python", "-m", "data.carracing", "--dir",
                 tdir, "--rollouts", str(rpt), "--policy", args.policy]
     ###
     
@@ -43,7 +47,6 @@ def _threaded_generation(i):
 
 
 if __name__ == '__main__':
-    from utils.misc import windows_os
     if windows_os:
         from multiprocessing import freeze_support
         freeze_support()
