@@ -1,0 +1,11 @@
+/__pycahe__/
+/datasets/
+/exp_dir/
+/old/
+*.pyc
+*.md~
+*.py~
+*.jpg
+*.bat
+*.*~
+
