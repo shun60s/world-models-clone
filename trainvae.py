@@ -144,8 +144,9 @@ if not args.noreload and exists(reload_file):
 
 ###
 if __name__ == '__main__':
-    from utils.misc import windows_os
-    if windows_os:
+    #from utils.misc import windows_os
+    import os
+    if os.name == 'nt':  #windows_os:
         from multiprocessing import freeze_support
         freeze_support()
     ###
